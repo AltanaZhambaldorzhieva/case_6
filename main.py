@@ -25,6 +25,17 @@ def syl(txt):
                 break
     return count
 
+def avg_sent(wrd,sent):
+    avg = wrd/sent
+    return avg
+
+def avg_wrd(wrd,syl):
+    avg = syl/wrd
+    return avg
+
+def index_Flesh_eng(avg_sent,avg_wrd):
+    index = 206.835 - (1.015 * avg_sent) - (84.6 * avg_wrd)
+    return index
 
 def ton(txt):
     blob = TextBlob(txt)
@@ -44,3 +55,6 @@ count = 0
 txt = input().strip()
 print(sent(txt))
 print(wrd(txt))
+print(avg_sent(wrd(txt),sent(txt)))
+print(avg_wrd(wrd(txt),syl(txt)))
+print(index_Flesh_eng(avg_sent(wrd(txt),sent(txt)),avg_wrd(wrd(txt),syl(txt))))
