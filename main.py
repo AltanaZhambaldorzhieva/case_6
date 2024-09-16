@@ -15,6 +15,16 @@ def wrd(txt):
     return count
 
 
+def syl(txt):
+    vowels = 'euioayыуеаоияэюё'
+    count = 0
+    for i in txt.lower():
+        for j in vowels:
+            if i == j:
+                count+=1
+                break
+    return count
+
 count = 0
 txt = input().strip()
 print(sent(txt))
