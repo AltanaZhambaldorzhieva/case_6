@@ -43,6 +43,7 @@ def avg_sent(wrd,sent):
     avg = wrd/sent
     return avg
 
+
 def avg_wrd(wrd,syl):
     """
         The function returns the average word length in syl.
@@ -50,12 +51,15 @@ def avg_wrd(wrd,syl):
     avg = syl/wrd
     return avg
 
+
 def index_Flesh_eng(avg_sent,avg_wrd):
     """
         The function returns the Flash Index of the english text.
     """
     index = 206.835 - (1.015 * avg_sent) - (84.6 * avg_wrd)
     return index
+
+
 def index_Flesh_rus(avg_sent,avg_wrd):
     """
         The function returns the Flash Index of the russian text.
@@ -81,9 +85,9 @@ def ton(txt):
 
 def subjectivity(txt):
     """
-        The function returns the objectivity of the text.
+        The function returns the subjectivity of the text.
     """
-    sub = TextBlob(txt)
+    sub = TextBlob(txt).subjectivity 
     return sub
 
 
