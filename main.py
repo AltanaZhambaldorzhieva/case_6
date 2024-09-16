@@ -55,6 +55,7 @@ count = 0
 txt = input().strip()
 print(sent(txt))
 print(wrd(txt))
+print(syl(txt))
 print(avg_sent(wrd(txt),sent(txt)))
 print(avg_wrd(wrd(txt),syl(txt)))
 print(index_Flesh_eng(avg_sent(wrd(txt),sent(txt)),avg_wrd(wrd(txt),syl(txt))))
