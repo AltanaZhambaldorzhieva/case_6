@@ -2,7 +2,7 @@
 # Developers: Zhambaldorzhieva A., Makarenko K.
 #
 import ru_local as ru
-
+from textblob import TextBlob
 
 def sent(txt):
     count = txt.count('.') + txt.count('?') + txt.count('!')
@@ -24,6 +24,21 @@ def syl(txt):
                 count+=1
                 break
     return count
+
+
+def ton(txt):
+    blob = TextBlob(txt)
+    pol = blob.sentiment.polarity
+
+    if pol > 0:
+        print(f'{ru.TON}: {ru.TON_POS}')
+    elif pol < 0:
+        print(f'{ru.TON}: {ru.TON_NEG}')
+    else:
+        print(f'{ru.TON}: {ru.TON_NORM}')
+
+    return pol
+
 
 count = 0
 txt = input().strip()
