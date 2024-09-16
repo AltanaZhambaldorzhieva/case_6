@@ -4,18 +4,29 @@
 import ru_local as ru
 from textblob import TextBlob
 
+
 def sent(txt):
+    """
+        The function returns the number of sentences in the text.
+    """
+
     count = txt.count('.') + txt.count('?') + txt.count('!')
     count += - txt.count('...')*2 - txt.count('???')*2 - txt.count('!!!')*2
     return count
 
 
 def wrd(txt):
+    """
+        The function returns the number of words in the text.
+    """
     count = len(txt.split())
     return count
 
 
 def syl(txt):
+    """
+        The function returns the number of syllables of words in the text.
+    """
     vowels = 'euioayыуеаоияэюё'
     count = 0
     for i in txt.lower():
