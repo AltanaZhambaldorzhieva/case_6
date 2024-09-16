@@ -31,12 +31,12 @@ def syl(txt):
     for i in txt.lower():
         for j in vowels:
             if i == j:
-                count+=1
+                count += 1
                 break
     return count
 
 
-def avg_sent(wrd,sent):
+def avg_sent(wrd, sent):
     """
         The function returns the average sentence length in words.
     """
@@ -44,7 +44,7 @@ def avg_sent(wrd,sent):
     return avg
 
 
-def avg_wrd(wrd,syl):
+def avg_wrd(wrd, syl):
     """
         The function returns the average word length in syl.
     """
@@ -52,7 +52,7 @@ def avg_wrd(wrd,syl):
     return avg
 
 
-def index_Flesh_eng(avg_sent,avg_wrd):
+def index_Flesh_eng(avg_sent, avg_wrd):
     """
         The function returns the Flash Index of the english text.
     """
@@ -60,7 +60,7 @@ def index_Flesh_eng(avg_sent,avg_wrd):
     return index
 
 
-def index_Flesh_rus(avg_sent,avg_wrd):
+def index_Flesh_rus(avg_sent, avg_wrd):
     """
         The function returns the Flash Index of the russian text.
     """
@@ -93,9 +93,9 @@ def subjectivity(txt):
 
 count = 0
 txt = input().strip()
-print(sent(txt))
-print(wrd(txt))
-print(syl(txt))
-print(avg_sent(wrd(txt),sent(txt)))
-print(avg_wrd(wrd(txt),syl(txt)))
-print(index_Flesh_rus(avg_sent(wrd(txt),sent(txt)),avg_wrd(wrd(txt),syl(txt))))
+print(f'{ru.TXT}:')
+print(f'{ru.SENT}:', sent(txt))
+print(f'{ru.WRD}:', wrd(txt))
+print(f'{ru.SYL}:', syl(txt))
+print(f'{ru.SENT_AVR_LEN}:', avg_sent(txt))
+
