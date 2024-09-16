@@ -92,10 +92,11 @@ def subjectivity(txt):
 
 
 count = 0
-txt = input().strip()
 print(f'{ru.TXT}:')
+txt = input().strip()
 print(f'{ru.SENT}:', sent(txt))
 print(f'{ru.WRD}:', wrd(txt))
 print(f'{ru.SYL}:', syl(txt))
-print(f'{ru.SENT_AVR_LEN}:', avg_sent(txt))
+print(f'{ru.SENT_AVR_LEN}:', avg_sent(wrd, sent))
+print(f'{ru.WRD_AVR_LEN}:', avg_wrd(wrd, syl))
 
