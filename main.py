@@ -36,13 +36,11 @@ def syl(txt):
                 break
     return count
 
-def avg_sent(wrd,sent):
-    avg = wrd/sent
-    return avg
+def average(sent,wrd,syl):
+    avg_sent = wrd/sent
+    avg_wrd = syl/wrd
+    return avg_sent, avg_wrd
 
-def avg_wrd(wrd,syl):
-    avg = syl/wrd
-    return avg
 
 def index_Flesh_eng(avg_sent,avg_wrd):
     index = 206.835 - (1.015 * avg_sent) - (84.6 * avg_wrd)
@@ -67,6 +65,5 @@ txt = input().strip()
 print(sent(txt))
 print(wrd(txt))
 print(syl(txt))
-print(avg_sent(wrd(txt),sent(txt)))
-print(avg_wrd(wrd(txt),syl(txt)))
-print(index_Flesh_eng(avg_sent(wrd(txt),sent(txt)),avg_wrd(wrd(txt),syl(txt))))
+print(average(sent(txt),wrd(txt),syl(txt)))
+print(index_Flesh_eng(average(sent(txt),wrd(txt),syl(txt))))
