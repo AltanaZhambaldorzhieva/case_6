@@ -36,20 +36,31 @@ def syl(txt):
     return count
 
 
-def average(sent,wrd,syl):
+def avg_sent(wrd,sent):
     """
-        The function returns the average sentence length in words and average word length.
+        The function returns the average sentence length in words.
     """
-    avg_sent = wrd/sent
-    avg_wrd = syl/wrd
-    return avg_sent, avg_wrd
+    avg = wrd/sent
+    return avg
 
-
-def index_Flesh_eng(avg_sent, avg_wrd):
+def avg_wrd(wrd,syl):
     """
-        The function returns the Flash Index of the text.
+        The function returns the average word length in syl.
+    """
+    avg = syl/wrd
+    return avg
+
+def index_Flesh_eng(avg_sent,avg_wrd):
+    """
+        The function returns the Flash Index of the english text.
     """
     index = 206.835 - (1.015 * avg_sent) - (84.6 * avg_wrd)
+    return index
+def index_Flesh_rus(avg_sent,avg_wrd):
+    """
+        The function returns the Flash Index of the russian text.
+    """
+    index = 206.835 - (1.3 * avg_sent) - (60.1 * avg_wrd)
     return index
 
 
@@ -81,5 +92,6 @@ txt = input().strip()
 print(sent(txt))
 print(wrd(txt))
 print(syl(txt))
-print(average(sent(txt),wrd(txt),syl(txt)))
-print(index_Flesh_eng(average(sent(txt),wrd(txt),syl(txt))))
+print(avg_sent(wrd(txt),sent(txt)))
+print(avg_wrd(wrd(txt),syl(txt)))
+print(index_Flesh_rus(avg_sent(wrd(txt),sent(txt)),avg_wrd(wrd(txt),syl(txt))))
