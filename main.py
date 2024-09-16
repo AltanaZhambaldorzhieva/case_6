@@ -99,4 +99,4 @@ print(f'{ru.WRD}:', wrd(txt))
 print(f'{ru.SYL}:', syl(txt))
 print(f'{ru.SENT_AVR_LEN}:', avg_sent(wrd(txt), sent(txt)))
 print(f'{ru.WRD_AVR_LEN}:', avg_wrd(wrd(txt), syl(txt)))
-
+print(f'{ru.IND_FLASH}:', index_Flesh_rus(avg_sent(wrd(txt), sent(txt)),avg_wrd(wrd(txt), syl(txt))))
