@@ -9,7 +9,6 @@ def sent(txt):
     """
         The function returns the number of sentences in the text.
     """
-
     count = txt.count('.') + txt.count('?') + txt.count('!')
     count += - txt.count('...')*2 - txt.count('???')*2 - txt.count('!!!')*2
     return count
@@ -36,20 +35,29 @@ def syl(txt):
                 break
     return count
 
+
 def average(sent,wrd,syl):
+    """
+        The function returns the average sentence length in words and average word length.
+    """
     avg_sent = wrd/sent
     avg_wrd = syl/wrd
     return avg_sent, avg_wrd
 
 
-def index_Flesh_eng(avg_sent,avg_wrd):
+def index_Flesh_eng(avg_sent, avg_wrd):
+    """
+        The function returns the Flash Index of the text.
+    """
     index = 206.835 - (1.015 * avg_sent) - (84.6 * avg_wrd)
     return index
 
-def ton(txt):
-    blob = TextBlob(txt)
-    pol = blob.sentiment.polarity
 
+def ton(txt):
+    """
+        The function returns the tonality of text.
+    """
+    pol = TextBlob(txt).polarity
     if pol > 0:
         print(f'{ru.TON}: {ru.TON_POS}')
     elif pol < 0:
@@ -58,6 +66,14 @@ def ton(txt):
         print(f'{ru.TON}: {ru.TON_NORM}')
 
     return pol
+
+
+def subjectivity(txt):
+    """
+        The function returns the objectivity of the text.
+    """
+    sub = TextBlob(txt)
+    return sub
 
 
 count = 0
