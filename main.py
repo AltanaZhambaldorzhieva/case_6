@@ -1,11 +1,21 @@
-def snt(txt):
-    cnt = txt.count('.') + txt.count('?') + txt.count('!')
-    cnt += - txt.count('...')*2 - txt.count('???')*2 - txt.count('!!!')*2
-    return cnt
-def wrd(txt):
-    a = len(txt.split())
-    return a
+# Case_6
+# Developers: Zhambaldorzhieva A., Makarenko K.
+#
+import ru_local as ru
 
+
+def sent(txt):
+    count = txt.count('.') + txt.count('?') + txt.count('!')
+    count += - txt.count('...')*2 - txt.count('???')*2 - txt.count('!!!')*2
+    return count
+
+
+def wrd(txt):
+    count = len(txt.split())
+    return count
+
+
+count = 0
 txt = input().strip()
-print(snt(txt))
+print(sent(txt))
 print(wrd(txt))
