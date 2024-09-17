@@ -2,7 +2,9 @@
 # Developers: Zhambaldorzhieva A., Makarenko K.
 #
 import ru_local as ru
+import goslate
 from textblob import TextBlob
+
 
 
 def sent(txt):
@@ -72,15 +74,13 @@ def ton(txt):
     """
         The function returns the tonality of text.
     """
-    pol = TextBlob(txt).polarity
+    pol = TextBlob(txt).sentiment.polarity
     if pol > 0:
-        print(f'{ru.TON}: {ru.TON_POS}')
+        return(f'{ru.TON_POS}')
     elif pol < 0:
-        print(f'{ru.TON}: {ru.TON_NEG}')
+        return(f'{ru.TON_NEG}')
     else:
-        print(f'{ru.TON}: {ru.TON_NORM}')
-
-    return pol
+        return(f'{ru.TON_NORM}')
 
 
 def subjectivity(txt):
@@ -88,7 +88,13 @@ def subjectivity(txt):
         The function returns the subjectivity of the text.
     """
     sub = TextBlob(txt).subjectivity 
-    return sub
+    return sub*100
+def translate_en(txt):
+    gs = goslate.Goslate()
+    translated = gs.translate(txt, 'en')
+    return translated
+
+
 
 
 count = 0
@@ -99,4 +105,6 @@ print(f'{ru.WRD}:', wrd(txt))
 print(f'{ru.SYL}:', syl(txt))
 print(f'{ru.SENT_AVR_LEN}:', avg_sent(wrd(txt), sent(txt)))
 print(f'{ru.WRD_AVR_LEN}:', avg_wrd(wrd(txt), syl(txt)))
-print(f'{ru.IND_FLASH}:', index_Flesh_rus(avg_sent(wrd(txt), sent(txt)),avg_wrd(wrd(txt), syl(txt))))
+print(f'{ru.IND_FLASH}:', index_Flesh_eng(avg_sent(wrd(txt), sent(txt)),avg_wrd(wrd(txt), syl(txt))))
+print(f'{ru.TON}:', ton(txt))
+print(f'{ru.OBJCT}:', subjectivity(txt), '%')
