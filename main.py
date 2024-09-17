@@ -89,6 +89,12 @@ def subjectivity(txt):
     """
     sub = TextBlob(txt).subjectivity 
     return sub*100
+
+def detect_lang(txt):
+    gs = goslate.Goslate()
+    language_id = gs.detect(txt)
+    return language_id
+
 def translate_en(txt):
     gs = goslate.Goslate()
     translated = gs.translate(txt, 'en')
@@ -100,6 +106,7 @@ def translate_en(txt):
 count = 0
 print(f'{ru.TXT}:')
 txt = input().strip()
+print(detect_lang(txt))
 print(f'{ru.SENT}:', sent(txt))
 print(f'{ru.WRD}:', wrd(txt))
 print(f'{ru.SYL}:', syl(txt))
